@@ -1,0 +1,188 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600);
+@import url(/assets/stylesheets/bootstrap.min.css);
+
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Source Sans Pro";
+    font-weight: 400;
+}
+
+body, #main-header .container {
+    background: #f9f9f9;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 400;
+    color: #333333;
+}
+
+h2 {
+    font-size: 20px;
+    margin: 0 0 22px 0;
+}
+
+p {
+    font-weight: 200;
+    color: #3e3e3e;
+    font-size: 19px;
+    line-height: 22px;
+    margin-bottom: 22px;
+
+    strong {
+        font-weight: 400;
+    }
+}
+
+.container {
+    width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#main-container {
+    margin-top: 90px;
+}
+
+#main-header {
+    z-index: 999;
+    text-transform: uppercase;
+    height: 50px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+
+    font-size: 15px;
+    color: #686868;
+
+    .container {
+        border-bottom: 2px solid #686868;
+    }
+    
+    #home-link {
+        float: left;
+    }
+
+    a {
+        padding: 24px 0 16px 0;
+        display: inline-block;
+    }
+
+    nav {
+        float: right;
+        text-align: right;
+
+        ul, li {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            display: inline-block;
+            margin-left: 50px;
+            position: relative;
+
+            a:after {
+                content: " ";
+                display: block;
+                position: absolute;
+                left: 50%;
+                bottom: -7px;
+                width: 12px;
+                height: 12px;
+                margin-left: -6px;
+                background: url(/assets/images/nav-bullet-big.png) no-repeat center center;
+                background-size: 10px;
+                transition: background-size 2s ease;
+                -moz-transition: background-size 2s ease;
+                -webkit-transition: background-size 2s ease;
+            }
+
+            a:hover:after {
+                background-size: 12px;
+            }
+        }
+    }
+}
+
+#bio {
+    #avatar {
+        width: 155px;
+        height: 155px;
+        float: left;
+    }
+
+    #main-title {
+        width: 815px;
+        float: right;
+        display: table;
+        
+        h1 {
+            color: #333333;
+            font-size: 30px;
+            font-weight: 400;
+            vertical-align: middle;
+            margin: 0;
+            height: 155px;
+            display: table-cell;
+        }
+    }
+
+    header {
+        margin-bottom: 40px;
+    }
+    
+    .hello, .education {
+        float: left;
+    }
+
+    .hello {
+        width: 500px;
+        margin-right: 80px;
+    }
+
+    .education {
+        width: 420px;
+
+        ul, li {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul {
+            background: url(/assets/images/timeline-line.png) no-repeat left 10px;
+        }
+
+        li {
+            padding-left: 20px;
+            line-height: 22px;
+            padding-bottom: 22px;
+            background: url(/assets/images/timeline-bullet.png) no-repeat -2px 6px;
+        }
+
+        li:last-child {
+            padding-bottom: 0;
+        }
+
+        h4 {
+            font-weight: 300;
+            font-size: 19px;
+            margin: 0;
+        }
+
+        p {
+            margin: 0;
+            font-size: 17px;
+            color: #8e8e8e;
+        }
+    }
+}

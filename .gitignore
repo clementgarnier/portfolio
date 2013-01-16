@@ -15,4 +15,4 @@ dist
 /.settings
 *~
 *.swp
-
+.DS_Store
