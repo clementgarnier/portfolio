@@ -4,7 +4,7 @@
 
 <html>
     <head>
-        <title>@title</title>
+        <title>Clément GARNIER – @title</title>
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
     </head>
@@ -14,9 +14,15 @@
                 <a href="@routes.Application.index()" id="home-link">clementgarnier.com</a>
                 <nav>
                     <ul>
-                        <li><a href="@routes.Application.index()">Bio</a></li>
-                        <li><a href="@routes.Application.projects()">Projects</a></li>
-                        <li><a href="@routes.Application.contact()">Contact</a></li>
+                        <li @if(title == "Bio") {
+                            class="active"
+                        }><a href="@routes.Application.index()">Bio</a></li>
+                        <li @if(title == "Projects") {
+                            class="active"
+                        }><a href="@routes.Application.projects()">Projects</a></li>
+                        <li @if(title == "Contact") {
+                            class="active"
+                        }><a href="@routes.Application.contact()">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -24,5 +30,10 @@
         <div class="container" id="main-container">
             @content
         </div>
+        <footer id="main-footer">
+            <div class="container">
+                © Clément GARNIER 2013. Thanks to <a href="http://keyamoon.com/">Keyamoon</a> for the icons.
+            </div>
+        </footer>
     </body>
 </html>
