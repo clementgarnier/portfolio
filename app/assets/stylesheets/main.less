@@ -9,7 +9,7 @@ html, body {
     font-weight: 400;
 }
 
-body, #main-header .container {
+body, #main-header {
     background: #f9f9f9;
 }
 
@@ -27,6 +27,13 @@ h2 {
     font-size: 20px;
     margin: 0 0 22px 0;
 }
+
+h4 {
+    font-weight: 300;
+    font-size: 19px;
+    margin: 0;
+}
+
 
 p {
     font-weight: 200;
@@ -46,14 +53,9 @@ p {
     position: relative;
 }
 
-#main-container {
-    margin-top: 90px;
-}
-
 #main-header {
     z-index: 999;
     text-transform: uppercase;
-    height: 50px;
     position: fixed;
     left: 0;
     right: 0;
@@ -111,6 +113,14 @@ p {
             }
         }
     }
+}
+
+#bio {
+    margin-top: 90px;
+}
+
+#projects, #contact {
+    margin-top: 115px;
 }
 
 #bio {
@@ -172,17 +182,169 @@ p {
         li:last-child {
             padding-bottom: 0;
         }
-
-        h4 {
-            font-weight: 300;
-            font-size: 19px;
-            margin: 0;
-        }
-
+        
         p {
             margin: 0;
             font-size: 17px;
             color: #8e8e8e;
         }
     }
+}
+
+#projects {
+    ul {
+        padding: 0;
+        margin: 10px 0 0 0;
+        list-style-type: none;
+    }
+
+    li {
+        position: relative;
+        min-height: 337px;
+        background: url(/assets/images/timeline-line.png) no-repeat 422px 10px;
+        margin-top: -10px;
+        padding-bottom: 34px;
+    }
+
+    .project-headings {
+
+        .project-date, .project-title {
+            float: left;
+        }
+    
+        &:before {
+            content: " ";
+            width: 429px;
+            height: 294px;
+            position: absolute;
+            top: 43px;
+            left: -9px;
+            background: url(/assets/images/previews/previews-desktop.jpg) no-repeat;
+        }
+    }
+
+    .project-circlelocus .project-headings:before {
+        background-position: 0 -294px;
+    }
+
+    .project-oleassence .project-headings:before {
+        background-position: 0 -588px;
+    }
+
+    .project-aperture .project-headings:before {
+        background-position: -429px 0;
+    }
+
+    .project-linutop .project-headings:before {
+        background-position: -429px -294px;
+    }
+
+    .project-welite .project-headings:before {
+        background-position: -429px -588px;
+    }
+    
+    .project-date {
+        width: 405px;
+        text-align: right;
+        color: #8e8e8e;
+    }
+
+    .project-title {
+        background: url(/assets/images/timeline-bullet.png) no-repeat 15px 6px;
+        padding-left: 42px;
+    }
+    
+    .project-description {
+        width: 553px;
+        float: right;
+        margin-top: 25px;
+    }
+
+    .project-link {
+        display: block;
+        height: 23px;
+        line-height: 23px;
+        font-size: 15px;
+        margin-top: 10px;
+    }
+
+    .project-link:before {
+        content: " ";
+        display: inline-block;
+        width: 23px;
+        height: 23px;
+        background: url(/assets/images/icons.png) no-repeat;
+        background-position: 0 -32px;
+        margin-right: 8px;
+        vertical-align: middle;
+    }
+}
+
+#contact {
+    .contact-info {
+        float: left;
+        width: 405px;
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+                
+        li:before {
+            content: " ";
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            margin: 0 20px 0 11px;
+            vertical-align: middle;
+            background: url(/assets/images/icons.png) no-repeat;
+        }
+
+        li {
+            height: 32px;
+            line-height: 32px;
+            margin-bottom: 18px;
+            font-weight: 200;
+
+            &.social-twitter:before {
+                background-position: -64px 0;
+            }
+
+            &.social-github:before {
+                background-position: -32px 0;
+            }
+        }
+
+        p {
+            margin-top: 0;
+        }
+    }
+
+    .contact-form {
+        float: right;
+        width: 553px;
+        position: relative;
+
+        label {
+            font-size: 19px;
+            font-weight: 200;
+            line-height: 22px;
+        }
+
+        input {
+            height: 22px;
+            margin-bottom: 22px;
+        }
+
+        textarea {
+            width: 359px;
+            height: 150px;
+        }
+
+        .btn {
+            margin: 0;
+        }
+    }
+
 }
