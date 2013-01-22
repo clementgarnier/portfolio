@@ -10,6 +10,11 @@
         @scripts.map { script =>
             <script type="text/javascript" src="@routes.Assets.at("javascripts/" + script)"></script>
         }
+        @if(title == "Bio" || title == "Contact") {
+            <meta name="robots" content="index, nofollow">
+        } else {
+            <meta name="robots" content="noindex, nofollow">
+        }
     </head>
     <body>
         <header id="main-header">
