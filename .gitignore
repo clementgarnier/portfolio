@@ -16,3 +16,4 @@ dist
 *~
 *.swp
 .DS_Store
+conf/application.conf

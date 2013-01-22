@@ -56,3 +56,10 @@ logger.play=INFO
 # Logger provided to your application:
 logger.application=DEBUG
 
+# Mailer configuration
+smtp.host=localhost
+# smtp.port=
+# smtp.ssl=
+# smtp.tls=
+# smtp.user=
+# smtp.password=
