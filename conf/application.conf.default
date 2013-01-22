@@ -63,3 +63,6 @@ smtp.host=localhost
 # smtp.tls=
 # smtp.user=
 # smtp.password=
+
+# Recipient address for contact form
+mailer.recipient="mail@example.com"
