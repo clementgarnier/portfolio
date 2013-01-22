@@ -352,6 +352,7 @@ p {
 
         input {
             height: 22px;
+            margin-right: 10px;
         }
 
         textarea {
@@ -361,6 +362,26 @@ p {
 
         .btn {
             margin: 0;
+        }
+
+        .help-inline {
+            line-height: 30px;
+            height: 30px;
+            margin-bottom: 10px;
+            padding-left: 0;
+            opacity: 0;
+            transition: opacity linear .2s;
+            -o-transition: opacity linear .2s;
+            -moz-transition: opacity linear .2s;
+            -webkit-transition: opacity linear .2s;
+        }
+
+        .control-group.error .help-inline {
+            opacity: 1;
+            transition: opacity linear .2s;
+            -o-transition: opacity linear .2s;
+            -moz-transition: opacity linear .2s;
+            -webkit-transition: opacity linear .2s;
         }
     }
 }

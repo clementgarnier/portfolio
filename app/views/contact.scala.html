@@ -1,6 +1,11 @@
-@()
+@(sendForm: Form[(String, String, String)] = Application.sendForm)(implicit request: RequestHeader)
 
-@main("Contact") {
+@import play.api.Routes
+@import routes.javascript._
+
+@implicitField = @{ helper.FieldConstructor(templates.myFieldConstructor.f) }
+
+@main("Contact", List("jquery-1.9.0.min.js")) {
 
 <section id="contact" class="clearfix">
     <div class="contact-info">
@@ -25,26 +30,108 @@
     </div>
     <div class="contact-form">
         <h2>Send me a message</h2>
-        <form>
+        @helper.form(action = routes.Application.sendMessage, 'id -> "sendMessage-form") {
+            <div class="message-container"></div>
             <div class="control-group">
-                <label class="control-label" for="inputEmail">Your name</label>
-                    <input type="text" name="name">
+                @helper.input(sendForm("name")) { (id, name, value, args) =>
+                    <label class="control-label" for="@id">Your name</label>
+                    <input type="text" name="@name" id="@id">
+                    <span class="help-inline"></span>
+                }
             </div>
             <div class="control-group">
-                <label class="control-label" for="inputEmail">Your email address</label>
-                    <input type="text" name="email">
+                @helper.input(sendForm("email")) { (id, name, value, args) =>
+                    <label class="control-label" for="@id">Your email address</label>
+                    <input type="text" name="@name" id="@id">
+                    <span class="help-inline"></span>
+                }
             </div>
             <div class="control-group">
-                <label class="control-label">Your message</label>
+                @helper.input(sendForm("name")) { (id, name, value, args) =>
+                    <label class="control-label" for="@id">Your message</label>
                     <textarea name="message"></textarea>
+                    <span class="help-inline"></span>
+                    <button type="submit" class="btn btn-primary" style="float: right;">Send!</button>
+                }
             </div>
-            <div class="control-group">
-                <div class="controls">
-                    <button type="submit" class="btn">Send!</button>
-                </div>
-            </div>
-        </form>
+        }
     </div>
 </section>
+<script type="text/javascript">
+    @Html(Routes.javascriptRouter("jsRoutes")(Application.sendMessage))
+</script>
+<script type="text/javascript">
+    $(function(){
+        window.lock = false;
+
+        window.onbeforeunload = function (e) {
+            console.log(window.lock);
+            if(window.lock) {
+                var e = e || window.event,
+                    message = "Your message has not been sent yet. If you leave this page now, it will be discarded.";
+             
+                // For IE and Firefox
+                if (e) {
+                    e.returnValue = message;
+                }
+             
+                // For Safari
+                return message;
+            }
+        };
+
+        $("#sendMessage-form").each(function(ø, scope) {
+            $(scope).bind("submit", function(e) {
+                e.preventDefault();
+
+                $("button", scope)
+                    .text("Sending…")
+                    .prop("disabled", true);
+                
+                $(".control-group.error", scope)
+                    .removeClass("error");
+                
+                window.lock = true;
+                console.log(window.lock);
+                
+                jsRoutes.controllers.Application.sendMessage().ajax({
+                    data: $(scope).serialize(),
+                    success: function() {
+                        var $scope = this;
+                        $("input, textarea", this).val("");
+
+                        $(".message-container", this)
+                            .empty()
+                            .show()
+                            .append('<div class="alert alert-success">Thank you! Your message has been sent.</div>');
+
+                        $("button", this)
+                            .text("Sent.")
+                            .prop("disabled", false);
+
+                        window.lock = false;
+                    },
+                    context: this,
+                    error: function(data){
+                        var $scope = this;
+                        $.each($.parseJSON(data.responseText), function(key, value) {
+                            var $field = $("[name="+key+"]", $scope);
+                            $field
+                                .parent(".control-group")
+                                .addClass("error")
+                                .children(".help-inline")
+                                .text(value);
+                        });
+                        $("button", $scope)
+                            .text("Send!")
+                            .prop("disabled", false);
+
+                        window.lock = false;
+                    }
+                });
+            });
+        });
+    }(jQuery, window));
+</script>
         
 }

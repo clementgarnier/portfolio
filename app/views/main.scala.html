@@ -1,4 +1,4 @@
-@(title: String)(content: Html)
+@(title: String, scripts: List[String] = Nil)(content: Html)
 
 <!DOCTYPE html>
 
@@ -7,6 +7,9 @@
         <title>Clément GARNIER – @title</title>
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        @scripts.map { script =>
+            <script type="text/javascript" src="@routes.Assets.at("javascripts/" + script)"></script>
+        }
     </head>
     <body>
         <header id="main-header">
