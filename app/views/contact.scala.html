@@ -1,7 +1,6 @@
 @(sendForm: Form[(String, String, String)] = Application.sendForm)(implicit request: RequestHeader)
 
 @import play.api.Routes
-@import routes.javascript._
 
 @implicitField = @{ helper.FieldConstructor(templates.myFieldConstructor.f) }
 
@@ -58,7 +57,7 @@
     </div>
 </section>
 <script type="text/javascript">
-    @Html(Routes.javascriptRouter("jsRoutes")(Application.sendMessage))
+    @Html(Routes.javascriptRouter("jsRoutes")(routes.javascript.Application.sendMessage))
 </script>
 <script type="text/javascript">
     $(function(){

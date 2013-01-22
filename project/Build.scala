@@ -1,6 +1,6 @@
 import sbt._
 import Keys._
-import play.Project._
+import PlayProject._
 
 object ApplicationBuild extends Build {
 
@@ -9,13 +9,11 @@ object ApplicationBuild extends Build {
 
   val appDependencies = Seq(
     // Add your project dependencies here,
-    jdbc,
-    anorm,
     "com.typesafe" %% "play-plugins-mailer" % "2.0.4"
   )
 
 
-  val main = play.Project(appName, appVersion, appDependencies).settings(
+  val main = PlayProject(appName, appVersion, appDependencies, mainLang = SCALA).settings(
     // Add your own project settings here      
   )
 
