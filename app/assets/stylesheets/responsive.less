@@ -1,0 +1,134 @@
+@media screen and (max-width: 1000px) {
+
+    #main-header {
+        position: absolute;
+
+        nav {
+            float: none;
+
+            ul {
+                text-align: center;
+            }
+
+            li {
+                margin: 0 10px;
+            }
+
+            li:first-child {
+                position: absolute;
+                left: 0;
+            }
+            li:last-child {
+                position: absolute;
+                right: 0;
+            }
+
+        }
+    }
+
+    a#home-link {
+        display: none;
+    }
+
+    div.container {
+        width: 90%;
+        margin: 0 5%;
+        position: relative;
+    }
+
+    #bio {
+        header {
+            text-align: center;
+        }
+        #avatar {
+            display: inline;
+            float: none;
+            margin-bottom: 40px;
+        }
+        #main-title {
+            text-align: left;
+            width: 100%;
+
+            h1 {
+                font-size: 19px;
+                height: auto;
+            }
+        }
+        .hello {
+            width: 100%;
+        }
+        .education {
+            width: 100%;
+        }
+    }
+
+    #projects {
+        .project-preview {
+            position: relative;
+            top: 0;
+        }
+
+        .project-description {
+            float: none;
+            width: auto;
+        }
+
+        .project-headings {
+            margin-bottom: 25px;
+
+            .project-title, .project-date {
+                display: block;
+                float: none;
+            }
+            .project-title {
+                margin-left: -42px;
+                background-position: 20px 6px;
+            }
+        }
+
+        li {
+            padding: 0 0 60px 20px;
+            margin-bottom: -40px;
+            background-position: 0 34px;
+            overflow: hidden;
+
+            .project-date {
+                float: none;
+                text-align: left;
+            }
+        }
+    }
+
+    #contact {
+        .contact-info {
+            width: auto;
+            float: none;
+        }
+
+        .contact-form {
+            float: none;
+            width: auto;
+
+            textarea {
+                width: 100%;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #projects {
+        .project-preview {
+            width: 214px;
+            height: 147px;
+            left: -5px;
+
+            img {
+                width: 200%;
+            }
+        }
+    }
+}

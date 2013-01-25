@@ -224,36 +224,43 @@ p {
         .project-date, .project-title {
             float: left;
         }
-    
-        &:before {
-            content: " ";
-            width: 429px;
-            height: 294px;
+    }
+
+    .project-preview {
+        width: 429px;
+        height: 294px;
+        overflow: hidden;
+        position: absolute;
+        top: 43px;
+        left: -9px;
+
+        img {
             position: absolute;
-            top: 43px;
-            left: -9px;
-            background: url(/assets/images/previews/previews-desktop.jpg) no-repeat;
+            top: 0;
+            left: 0;
         }
     }
 
-    .project-circlelocus .project-headings:before {
-        background-position: 0 -294px;
+    .project-circlelocus .project-preview img {
+        top: -100%;
     }
 
-    .project-oleassence .project-headings:before {
-        background-position: 0 -588px;
+    .project-oleassence .project-preview img {
+        top: -200%;
     }
 
-    .project-aperture .project-headings:before {
-        background-position: -429px 0;
+    .project-aperture .project-preview img {
+        left: -100%;
     }
 
-    .project-linutop .project-headings:before {
-        background-position: -429px -294px;
+    .project-linutop .project-preview img {
+        left: -100%;
+        top: -100%;
     }
 
-    .project-welite .project-headings:before {
-        background-position: -429px -588px;
+    .project-welite .project-preview img {
+        left: -100%;
+        top: -200%;
     }
     
     .project-date {
@@ -392,3 +399,5 @@ p {
     color: #8e8e8e;
     font-weight: 200;
 }
+
+@import "responsive.less";
