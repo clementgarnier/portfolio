@@ -64,7 +64,6 @@
         window.lock = false;
 
         window.onbeforeunload = function (e) {
-            console.log(window.lock);
             if(window.lock) {
                 var e = e || window.event,
                     message = "Your message has not been sent yet. If you leave this page now, it will be discarded.";
@@ -91,7 +90,6 @@
                     .removeClass("error");
                 
                 window.lock = true;
-                console.log(window.lock);
                 
                 jsRoutes.controllers.Application.sendMessage().ajax({
                     data: $(scope).serialize(),
