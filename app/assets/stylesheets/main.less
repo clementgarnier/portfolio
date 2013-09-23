@@ -106,9 +106,6 @@ p {
                 margin-left: -6px;
                 background: url(/assets/images/nav-bullet-big.png) no-repeat center center;
                 background-size: 10px;
-                transition: background-size 2s ease;
-                -moz-transition: background-size 2s ease;
-                -webkit-transition: background-size 2s ease;
             }
 
             a:hover:after, &.active a:after {
@@ -150,6 +147,13 @@ p {
             margin: 0;
             height: 155px;
             display: table-cell;
+
+            font-weight: 200;
+
+            em {
+                font-style: normal;
+                font-weight: 400;
+            }
         }
     }
 
@@ -398,6 +402,7 @@ p {
     text-align: center;
     color: #8e8e8e;
     font-weight: 200;
+    font-size: 14px;
 }
 
 @import "responsive.less";
