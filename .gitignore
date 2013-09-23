@@ -5,8 +5,6 @@ target
 tmp
 .history
 dist
-/.idea
-/*.iml
 /out
 /.idea_modules
 /.classpath
@@ -17,3 +15,7 @@ dist
 *.swp
 .DS_Store
 conf/application.conf
+*.iml
+*.ipr
+*.iws
+.idea/
